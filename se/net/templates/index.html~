@@ -1,0 +1,18 @@
+<HTML>
+<head><title>Application</title></head>
+<body>
+<h2>Welcome {{uname}}!</h2>
+<hr>
+Choose action :<br>
+<a href="/taskslist">View assigned tasks</a> <br>
+<a href="/resp?user={{uname}}">View your duties and responsibilities</a> <br>
+<a href="/reportgen?user=se">Generate a report</a><br>
+<a href="/admin">Go to administration panel</a>
+<hr>
+<form method="post" action="{% url django.contrib.auth.views.logout_then_login %}">
+<input type="submit" value="logout" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+</body>
+</html>

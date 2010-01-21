@@ -1,0 +1,36 @@
+<HTML><HEAD><TITLE>Manager's report</TITLE></HEAD>
+<BODY>
+<h2>{{user}} report:<br></h2>
+<h2>Brief data:<br></h2>
+<ul>
+<li>Total cash earned by all of my agents: {{soldsumcash.earned}}</li>
+<li>Number of sales made by all of my agents: {{salesmade.count}}</li>
+</ul>
+<br>
+<h2>Detailed data:</h2>
+Agents under supervision:
+<ul>
+	{%for x in agents%}
+		<li>
+		{{x.user__username}} operating in {{x.region__name}}:
+		{%if kinds%}
+			<table cellspacing="0" cellpadding="20" border="1">
+			<tr><td>Good name</td>{%if amount%}<td>Amount</td>{%endif%}{%if pr%}<td>Price</td>{%endif%}{%if warehouse%}<td>Warehouse address</td>{%endif%}<td>Shop</td>{%if datetime%}<td>Sell 				date and time</td>{%endif%}</tr>
+			{%for y in details%}			
+				{% ifequal y.employee__user__username  x.user__username %}
+					<tr>
+					<td>{{y.what__type__name}}</td>{%if amount%}<td>{{y.amount}}</td>{%endif%}{%if pr%}<td>{{y.price}}</td>{%endif%}{%if warehouse%}<td>			{{y.what__origin__address}}</td>{%endif%}<td>{{y.shop__name}}, {{y.shop__address}}, {{y.shop__region__name}}</td>{%if datetime%}<td>{{y.date}}</td>{%endif%}
+					</tr>
+				
+				{%endifequal%}
+			{%endfor%}
+			</table>
+		{%endif%}
+
+		</li>
+	{%endfor%}
+</ul>
+
+
+</BODY>
+</HTML>

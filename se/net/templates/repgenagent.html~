@@ -1,0 +1,51 @@
+<HTML><HEAD><TITLE>Agent's report</TITLE></HEAD>
+<BODY>
+<h2>{{user}} report:<br></h2>
+Brief data:<br>
+<ul>
+<li>Total cash earned: {{soldsumcash.earned}} zl</li>
+<li>Number of sales made: {{salesmade.count}}</li>
+<li>Contractor's list:
+
+		<table cellspacing="0" cellpadding="20" border="1">
+		<tr align="center"><td>Shop name</td><td>Address</td><td>Number of solds</td></tr>
+		{% for x in contractorslist %}
+			<tr align="center">
+			<td>{{x.shop__name}}</td> <td>{{x.shop__address}}</td> <td> {{x.solds}}</td>
+			</tr>
+
+		{% endfor %}
+		</table>
+
+</li>
+</ul>
+<br>
+
+{% if kinds %}
+Detailed data:
+
+<ul>
+<li>Sold goods
+	<table cellspacing="0" cellpadding="20" border="1">
+	<tr><td>Good</td>{%if amount%}<td>Amount</td>{%endif%}{%if pr%}<td>Price</td>{%endif%}<td>Shop</td>{%if warehouse%}<td>Warehouse address</td>{%endif%}{%if datetime%}<td>Sell date and time</td>{%endif%}</tr>
+	{% for x in kinds %}
+	<tr>
+	<td>{{x.what__type__name}}</td>{%if amount%}<td>{{x.amount}}</td>{%endif%}{%if pr%}<td>{{x.price}}</td>{%endif%}<td>{{x.shop__name}}, {{x.shop__address}}, {{x.shop__region}}</td>{%if warehouse%}<td>{{x.what__origin__address}}</td>{%endif%}
+	    {%if datetime%}<td>{{x.date}}</td>{%endif%}
+	</tr>
+	{% endfor %}					
+</li>
+</ul>
+{% endif %}
+{%if not kinds and amount %}
+	<h3>In order to see amount details, you must select to display kinds of goods sold first!</h3>
+{% endif %}
+{%if not kinds and warehouse %}
+	<h3>In order to see warehouse details, you must select to display kinds of goods sold first!</h3>
+{% endif %}
+{%if not kinds and datetime %}
+	<h3>In order to see sell day and time, you must select to display kinds of goods sold first!</h3>
+{% endif %}
+
+</BODY>
+</HTML>

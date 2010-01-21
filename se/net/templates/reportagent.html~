@@ -1,0 +1,24 @@
+<HTML><HEAD><TITLE>Agent report generation</TITLE></HEAD>
+<BODY>
+<b>Select fields to be included in the agent's report:</b>
+<form action="/repgenagent"><br>
+Report timeframe (format YYYY-MM-DD):<br>
+From:<input type="text" name="from">To:
+<input type="text" name="to"><br>
+<input type="checkbox" name="totalcash" value="0" checked disabled="true" > Total cash earned<br>
+<input type="checkbox" name="salesnr" value="0" checked disabled="true"> Number of sales made <br>
+<input type="checkbox" name="contrlist" value="0" checked disabled="true"> Contractors list <br>
+<br>
+<b>Detailed options: <br></b>
+<br>
+<input type="checkbox" name="kinds" value="1" > kinds of goods sold<br>
+<input type="checkbox" name="price" value="2" > product price <br>
+<input type="checkbox" name="amount" value="2" > amount <br>
+<input type="checkbox" name="warehouse" value="3" > warehouse information <br>
+<input type="checkbox" name="datetime" value="4" > day and time of delivery<br>
+<input type="hidden" name="user" value="{{user}}"/>
+<input type="submit" value="generate" />
+</form>
+<a href ="/">Back</a>
+</BODY>
+</HTML>

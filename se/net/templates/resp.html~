@@ -1,0 +1,23 @@
+<HTML>
+<HEAD><TITLE>Responsibilities and duties</TITLE></HEAD>
+<BODY>
+<h2>Your responsibilities and duties</h2>
+<hr>
+<p>Agents to supervise:</p>
+<ul>
+{% for x in people %}  
+<li>{{ x.user }}, {{x.region}}, {{x.salary}}zl</li>
+{% endfor %} 
+</ul>
+<hr>
+<p>Shops and foodcourts that you supplied:</p>
+
+<ul>
+{% for x in shops %}  
+<li>{{ x.shop.name }}, {{x.shop.region}}, {{x.shop.address}}, NIP:{{x.shop.nip}} </li>
+{% endfor %} 
+</ul>
+<hr>
+<a href ="/">Back</a>
+</BODY>
+<HTML>

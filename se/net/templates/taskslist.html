@@ -1,0 +1,66 @@
+<html>
+<head><title>Task list</title></head>
+<body>
+<h2>This is your task list:</h2>
+
+{% for x in items %}  
+
+<form method="post" action="/taskcompleted">
+
+<table cellspacing="10" cellpadding="0" border="0" align="center" width="500px">
+<tr>
+	<td>Date of submission</td>
+	<td><input type="text" name="subdate" value ='{{ x.created_date }}'/></td>
+</tr>
+<tr>
+	<td>Deadline</td>
+	<td><input type="text" name="deadline" value ='{{ x.taskt }}' /></td>
+</tr>
+<tr>
+	<td>Good's name</td>
+	<td><input type="text" name="what" value ="{{ x.what }}"/></td>
+</tr>
+<tr>
+	<td>Amount</td>
+	<td><input type="text" name="amount" value ="{{ x.amount }}"/></td>
+</tr>
+<tr>
+	<td>Price</td>
+	<td><input type="text" name="price" value ="{{ x.price }}"/></td>
+</tr>
+<tr>
+	<td>Deliver to shop</td>
+	<td><input type="text" name="shop" value ="{{ x.shop.name }}"/></td>
+</tr>
+<tr>
+	<td>Shop's NIP</td>
+	<td><input type="text" name="nip" value ="{{ x.shop.nip }}"/></td>
+</tr>
+<tr>
+	<td>Shop address</td>
+	<td><input type="text" name="shopaddr" value ="{{ x.shop }}"/></td>
+</tr>
+<tr>
+	<td>Collect goods from warehouse</td>
+	<td><input type="text" name="warehouse" value ="{{ x.what.origin }}"/></td>
+</tr>
+<tr>
+	<td>Priority</td>
+	<td><input type="text" name="priority" value ="{{ x.priority }}"/></td>
+</tr>
+<tr>
+	<td>Comment</td>
+	<td><input type="text" length="50" name="comment" value ="{{ x.comment }}"/></td>
+</tr>
+</table>
+
+<input type="hidden" name="id" value="{{x.id}}"/>
+<input type="hidden" name="employee" value="{{x.employee}}"/>
+<input type="submit" value="completed" />
+</form>
+<hr />  
+{% endfor %} 
+
+<a href ="/">Back</a>
+</body>
+</HTML>

@@ -1,0 +1,13 @@
+from se.net.models import *
+from django.contrib import admin
+
+admin.site.register(Task)
+admin.site.register(Region)
+admin.site.register(Employee)
+admin.site.register(Shop)
+admin.site.register(GoodsType)
+admin.site.register(Stock)
+admin.site.register(Warehouse)
+admin.site.register(Sold)
+
+

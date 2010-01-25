@@ -1,0 +1,160 @@
+commit f18e67dd346c0c9b5da72bc3f9d2332a1f0d3b04
+Author: Wojtek <swojtek@asn.pl>
+Date:   Mon Jan 25 19:40:36 2010 +0100
+
+    Rest of files
+
+diff --git a/__init__.py b/__init__.py
+new file mode 100755
+index 0000000..e69de29
+diff --git a/__init__.pyc b/__init__.pyc
+new file mode 100755
+index 0000000..9444aa3
+Binary files /dev/null and b/__init__.pyc differ
+diff --git a/manage.py b/manage.py
+new file mode 100755
+index 0000000..bcdd55e
+--- /dev/null
++++ b/manage.py
+@@ -0,0 +1,11 @@
++#!/usr/bin/python
++from django.core.management import execute_manager
++try:
++    import settings # Assumed to be in the same directory.
++except ImportError:
++    import sys
++    sys.stderr.write("Error: Can't find the file 'settings.py' in the directory containing %r. It appears you've customized things.\nYou'll have to run django-admin.py, passing it your settings module.\n(If the file settings.py does indeed exist, it's causing an ImportError somehow.)\n" % __file__)
++    sys.exit(1)
++
++if __name__ == "__main__":
++    execute_manager(settings)
+diff --git a/settings.py b/settings.py
+new file mode 100755
+index 0000000..57631f0
+--- /dev/null
++++ b/settings.py
+@@ -0,0 +1,83 @@
++# Django settings for se project.
++
++DEBUG = True
++TEMPLATE_DEBUG = DEBUG
++
++ADMINS = (
++    # ('Your Name', 'your_email@domain.com'),
++)
++
++MANAGERS = ADMINS
++
++DATABASE_ENGINE = 'mysql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
++DATABASE_NAME = 'se'             # Or path to database file if using sqlite3.
++DATABASE_USER = 'se'             # Not used with sqlite3.
++DATABASE_PASSWORD = 'se'         # Not used with sqlite3.
++DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
++DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
++
++# Local time zone for this installation. Choices can be found here:
++# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
++# although not all choices may be available on all operating systems.
++# If running in a Windows environment this must be set to the same as your
++# system time zone.
++TIME_ZONE = 'America/Chicago'
++
++# Language code for this installation. All choices can be found here:
++# http://www.i18nguy.com/unicode/language-identifiers.html
++LANGUAGE_CODE = 'en-us'
++
++SITE_ID = 1
++
++# If you set this to False, Django will make some optimizations so as not
++# to load the internationalization machinery.
++USE_I18N = True
++
++# Absolute path to the directory that holds media.
++# Example: "/home/media/media.lawrence.com/"
++MEDIA_ROOT = ''
++
++# URL that handles the media served from MEDIA_ROOT. Make sure to use a
++# trailing slash if there is a path component (optional in other cases).
++# Examples: "http://media.lawrence.com", "http://example.com/media/"
++MEDIA_URL = ''
++
++# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
++# trailing slash.
++# Examples: "http://foo.com/media/", "/media/".
++ADMIN_MEDIA_PREFIX = '/admin-media/'
++
++# Make this unique, and don't share it with anybody.
++SECRET_KEY = '#_38f2&7#=agn&%@s=h1!rw-p4*q(ry-woaq7)6u5khlbm*i$v'
++
++# List of callables that know how to import templates from various sources.
++TEMPLATE_LOADERS = (
++    'django.template.loaders.filesystem.load_template_source',
++    'django.template.loaders.app_directories.load_template_source',
++#     'django.template.loaders.eggs.load_template_source',
++)
++
++MIDDLEWARE_CLASSES = (
++    'django.middleware.common.CommonMiddleware',
++    'django.contrib.sessions.middleware.SessionMiddleware',
++    'django.contrib.auth.middleware.AuthenticationMiddleware',
++)
++
++ROOT_URLCONF = 'se.urls'
++
++TEMPLATE_DIRS = (
++    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
++    # Always use forward slashes, even on Windows.
++    # Don't forget to use absolute paths, not relative paths.
++)
++
++INSTALLED_APPS = (
++    'se.net',
++    'django.contrib.auth',
++    'django.contrib.contenttypes',
++    'django.contrib.sessions',
++    'django.contrib.sites',
++    'django.contrib.admin'
++)
++
++LOGIN_URL = '/accounts/login/?next=/'
+diff --git a/settings.pyc b/settings.pyc
+new file mode 100755
+index 0000000..c89d236
+Binary files /dev/null and b/settings.pyc differ
+diff --git a/urls.py b/urls.py
+new file mode 100755
+index 0000000..ac7426c
+--- /dev/null
++++ b/urls.py
+@@ -0,0 +1,27 @@
++from django.conf.urls.defaults import *
++
++# Uncomment the next two lines to enable the admin:
++from django.contrib import admin
++admin.autodiscover()
++
++urlpatterns = patterns('',
++    # Example:
++    # (r'^se/', include('se.foo.urls')),
++
++    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
++    # to INSTALLED_APPS to enable admin documentation:
++    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
++
++    # Uncomment the next line to enable the admin:
++    (r'^admin/(.*)', admin.site.root),
++    #Index page, it maps to / . Once the page is called it will look in se/net/views.py for a function called index
++    (r'^$', 'se.net.views.index'),
++    (r'^accounts/login/$', 'django.contrib.auth.views.login'),
++    (r'^accounts/logout/$', 'django.contrib.auth.views.logout_then_login'),
++    (r'^taskcompleted', 'se.net.views.taskcompleted'),
++    (r'^taskslist/$', 'se.net.views.taskslist'),
++    (r'^reportgen/$', 'se.net.views.reportgen'),
++    (r'^repgenmanager/$', 'se.net.views.repgenmanager'),
++    (r'^repgenagent/', 'se.net.views.repgenagent'),
++    (r'^resp/', 'se.net.views.resp'),
++)
+diff --git a/urls.pyc b/urls.pyc
+new file mode 100755
+index 0000000..ce2a3e0
+Binary files /dev/null and b/urls.pyc differ

@@ -1,6 +1,9 @@
-<HTML><HEAD><TITLE>Sales manager report generation</TITLE></HEAD>
-<BODY>
-<b>Select fields to be included in the report:</b>
+{% extends "base.html" %}
+
+{% block title %}Sales manager report generation{% endblock %}
+
+{% block content %}
+<h3>Select fields to be included in the report:</h3>
 <form action="/repgenmanager"><br>
 Report timeframe (format YYYY-MM-DD):<br><br>
 From:<input type="text" name="from">To:
@@ -8,7 +11,7 @@ From:<input type="text" name="from">To:
 <input type="checkbox" name="totalcash" value="0" checked disabled="true" > Total cash earned by all my agents<br>
 <input type="checkbox" name="totalcash" value="0" checked disabled="true"> Number of sales made by all my agents<br>
 <br>
-<b>Detalied agent specific options: <br></b>
+<h3>Detalied agent specific options:</h3>
 (if chosen, information about agents will be displayed with the following options)<br>
 <input type="checkbox" name="kinds" value="1" > kinds of goods sold<br>
 <input type="checkbox" name="price" value="5" > price <br>
@@ -19,5 +22,4 @@ From:<input type="text" name="from">To:
 <input type="submit" value="generate" />
 </form>
 <a href ="/">Back</a>
-</BODY>
-</HTML>
+{% endblock %}

@@ -1,6 +1,9 @@
-<HTML><HEAD><TITLE>Agent report generation</TITLE></HEAD>
-<BODY>
-<b>Select fields to be included in the agent's report:</b>
+{% extends "base.html" %}
+
+{% block title %}Agent report generation{% endblock %}
+
+{% block content %}
+<h3>Select fields to be included in the agent's report:</h3>
 <form action="/repgenagent"><br>
 Report timeframe (format YYYY-MM-DD):<br>
 From:<input type="text" name="from">To:
@@ -9,7 +12,7 @@ From:<input type="text" name="from">To:
 <input type="checkbox" name="salesnr" value="0" checked disabled="true"> Number of sales made <br>
 <input type="checkbox" name="contrlist" value="0" checked disabled="true"> Contractors list <br>
 <br>
-<b>Detailed options: <br></b>
+<h3>Detailed options: </h3>
 <br>
 <input type="checkbox" name="kinds" value="1" > kinds of goods sold<br>
 <input type="checkbox" name="price" value="5" > product price <br>
@@ -20,5 +23,4 @@ From:<input type="text" name="from">To:
 <input type="submit" value="generate" />
 </form>
 <a href ="/">Back</a>
-</BODY>
-</HTML>
+{% endblock %}

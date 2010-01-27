@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -24,4 +25,6 @@ urlpatterns = patterns('',
     (r'^repgenmanager/$', 'se.net.views.repgenmanager'),
     (r'^repgenagent/', 'se.net.views.repgenagent'),
     (r'^resp/', 'se.net.views.resp'),
+    (r'^assets/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
+

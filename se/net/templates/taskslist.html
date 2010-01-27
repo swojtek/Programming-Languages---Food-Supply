@@ -1,7 +1,9 @@
-<html>
-<head><title>Task list</title></head>
-<body>
-<h2>This is your task list:</h2>
+{% extends "base.html" %}
+
+{% block title %}Task list{% endblock %}
+
+{% block content %}
+<h3>This is your task list:</h3>
 
 {% for x in items %}  
 
@@ -62,5 +64,4 @@
 {% endfor %} 
 
 <a href ="/">Back</a>
-</body>
-</HTML>
+{% endblock %}

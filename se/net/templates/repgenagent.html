@@ -1,5 +1,8 @@
-<HTML><HEAD><TITLE>Agent's report</TITLE></HEAD>
-<BODY>
+{% extends "base.html" %}
+
+{% block title %}{{user}} report{% endblock %}
+
+{% block content %}
 <h2>{{user}} report:<br></h2>
 Brief data:<br>
 <ul>
@@ -49,3 +52,4 @@ Detailed data:
 
 </BODY>
 </HTML>
+{% endblock %}

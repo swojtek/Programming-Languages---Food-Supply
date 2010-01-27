@@ -35,7 +35,9 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+import os
+SETTINGS_FILE_FOLDER = os.path.dirname(__file__)
+MEDIA_ROOT =  os.path.join(SETTINGS_FILE_FOLDER, 'net/assets')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).

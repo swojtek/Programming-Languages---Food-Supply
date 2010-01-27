@@ -1,0 +1,108 @@
+/* 
+    Document   : main
+    Created on : Jan 26, 2010, 10:08:58 AM
+    Author     : atom
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+body{
+  background-color:#adb4bf;
+  font-family: Arial;
+    font-size:12px;
+}
+/* Whoever did this standard styles should be killed */
+
+/* Let' do a normal menu! */
+#atom-main-menu
+{
+  list-style:none;
+  list-style-image:none;
+  list-style-type:none;
+  color:white;
+  font-size:12px;
+}
+
+#atom-main-menu  li
+{
+  padding:5px;
+  float:left;
+  border-right: 1px solid #7c776a;
+}
+#atom-main-menu li:hover
+{
+  background-color:#7c776a;
+}
+#atom-main-menu a
+{
+  color:white;
+  text-decoration:none;
+}
+#atom-logobar
+{
+  height:30px;
+  color: white;
+  background-color:black;
+  border-bottom: 1px solid #1f3453;
+}
+#atom-topbar
+{
+  display:block;
+  height:22px;;
+  
+  background-color:#1c82a4;
+}
+#atom-redbar
+{
+  height:3px;
+  background-color:#8f6b08;
+  width:100%;
+  margin-bottom:0px;
+}
+
+#content
+{
+  padding:5px;
+  padding-top:15px;
+  padding-left:10px;
+  height:600px;
+  background-color:#fafeff;
+}
+#footer
+{
+  border-top:6px solid #8f6b08;
+  padding-top:30px;
+  font-size:10px;
+  background-color:#adb4bf;
+  text-align:center;
+  height:50px;
+}
+h3
+{
+  text-indent:20px;
+  font-size:14px;
+  color:#8f6b08;
+}
+input[type="text"]
+{
+  height:13px;
+  margin:2px;
+  margin-left:5px;
+  margin-right:5px;
+  border:1px solid #8f6b08;
+}
+input[type="submit"]
+{
+  margin:10px;
+}
+
+
+

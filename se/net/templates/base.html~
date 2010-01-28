@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <title>{% block title %}My amazing site{% endblock %}</title>
+  </head>
+
+  <body>
+    <div id="atom-logobar">Elo!? Ziom.</div>
+    <div id="atom-topbar">
+      {% block sidebar %}
+      <ul id="atom-main-menu">
+        <li><a href="/taskslist">View assigned tasks</a> <br></li>
+        <li><a href="/resp">View your duties and responsibilities</a> <br></li>
+        <li><a href="/reportgen">Generate a report</a><br></li>
+        <li><a href="/admin">Go to administration panel</a></li>
+      </ul>
+      {% endblock %}
+    </div>
+    <div id="atom-redbar"></div>
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+    <div id="footer">
+      Atom cos testuje cos jeszcze:P
+    </div>
+  </body>
+</html>

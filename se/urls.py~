@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     (r'^reportgen/$', 'se.net.views.reportgen'),
     (r'^repgenmanager/$', 'se.net.views.repgenmanager'),
     (r'^repgenagent/', 'se.net.views.repgenagent'),
-    (r'^resp/$', 'se.net.views.resp'),
+    (r'^resp/', 'se.net.views.resp'),
     (r'^assets/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 

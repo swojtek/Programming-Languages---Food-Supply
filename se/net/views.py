@@ -51,14 +51,14 @@ def taskcompleted(request):
 
 @login_required
 def resp(request):
-	uname=request.GET.get('user')
+	uname=request.user.username
 	shops=Sold.objects.filter(employee__user__username=uname)
 	people=Employee.objects.filter(supervisor__user__username=uname)
   	return render_to_response('resp.html', {'shops': shops, 'people': people})
 
 @login_required
 def reportgen(request): 
-	uname=request.GET.get('user')
+	uname=request.user.username
 	#this is temporary, further there will also be user kind (manager/agent)
 	if uname == "se":
   		return render_to_response('reportmanager.html', {'user':uname})

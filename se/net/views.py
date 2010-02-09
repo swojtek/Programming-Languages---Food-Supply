@@ -37,13 +37,16 @@ def taskcompleted(request):
 			errors.append('Enter valid id.')
 	if not errors:
 		#deleting requested item from tasks list
-		Task.objects.filter(id=request.POST.get('id')).delete();
+		task = Task.objects.filter(id=request.POST.get('id')).delete()
 		#saving item to Sold
 		gt = Stock.objects.get(type__name=request.POST.get('what'))
 		shopkind = Shop.objects.get(name=request.POST.get('shop'), nip=request.POST.get('nip'))
 		emp = Employee.objects.get(user__username=uname)
 		newsold = Sold(employee=emp, what=gt, shop=shopkind, date=request.POST.get('subdate'), amount=request.POST.get('amount'), price=request.POST.get('price') )
 		newsold.save();
+		#decrementing stock in warehouse
+		gt.amount = gt.amount - float(request.POST.get('amount'))
+		gt.save()
 		#displaying remaining tasks
 		items = Task.objects.filter(employee__user__username=uname)
 		return render_to_response('taskslist.html', {'items': items}) 

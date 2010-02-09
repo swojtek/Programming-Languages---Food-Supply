@@ -35,7 +35,7 @@ class Shop(models.Model):
 	contact = models.TextField('Contact hints', blank=True)
 
 	def __unicode__(self):
-		return self.region.name + ': ' + self.address	
+		return self.name + ': ' + self.region.name + ', ' + self.address	
 
 class Warehouse(models.Model):
 	region = models.ForeignKey(Region)
@@ -91,10 +91,10 @@ class Task(models.Model):
 	created_date = models.DateTimeField(default=datetime.datetime.now)
 	priority = models.IntegerField(choices=PRIORITY_CHOICES, default=2)
 	taskt = models.DateTimeField('Task deadline', blank=True, null=True)
-	completed_date = models.DateTimeField('Completed date', blank=True, null=True)
+#	completed_date = models.DateTimeField('Completed date', blank=True, null=True)
 	employee = models.ForeignKey(Employee)
 	def __unicode__(self):
-		return str(self.created_date)+": "+ str(self.what) + ": " + str(self.amount)+" units"
+		return str(self.created_date)+", " + str(self.employee) + ": " + str(self.what) + ": " + str(self.amount)+" units"
 	class Meta:
 		ordering = ['-priority', 'taskt']
 	class Admin:

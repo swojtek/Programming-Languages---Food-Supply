@@ -16,8 +16,8 @@ root {
 }
 body{
   background-color:#adb4bf;
-  font-family: Arial;
-    font-size:12px;
+  font-family: Verdana,Arial;
+    font-size:13px;
 }
 /* Whoever did this standard styles should be killed */
 
@@ -28,7 +28,7 @@ body{
   list-style-image:none;
   list-style-type:none;
   color:white;
-  font-size:12px;
+  font-size:13px;
 }
 
 #atom-main-menu  li
@@ -50,6 +50,9 @@ body{
 {
   height:30px;
   color: white;
+  font-size:22px;
+  padding:5px;
+  font-weight:bold;
   background-color:black;
   border-bottom: 1px solid #1f3453;
 }
@@ -57,7 +60,7 @@ body{
 {
   display:block;
   height:22px;;
-  
+ 
   background-color:#1c82a4;
 }
 #atom-redbar
@@ -73,7 +76,8 @@ body{
   padding:5px;
   padding-top:15px;
   padding-left:10px;
-  height:600px;
+  min-height:600px;
+  
   background-color:#fafeff;
 }
 #footer
@@ -89,7 +93,13 @@ h3
 {
   text-indent:20px;
   font-size:14px;
+  display:block;
   color:#8f6b08;
+  margin-bottom:5px;
+}
+h2
+{
+  display:block;
 }
 input[type="text"]
 {
